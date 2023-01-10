@@ -16,15 +16,6 @@ export default async function (req, res) {
   }
 
   const { ingreds, cuisine, meal } = req.body
-  // const animal = req.body.animal || '';
-  // if (animal.trim().length === 0) {
-  //   res.status(400).json({
-  //     error: {
-  //       message: "Please enter a valid animal",
-  //     }
-  //   });
-  //   return;
-  // }
 
   try {
     const completion = await openai.createCompletion({
@@ -51,9 +42,6 @@ export default async function (req, res) {
 }
 
 function generatePrompt(ingreds, cuisine, meal) {
-  console.log({ ingreds, cuisine, meal })
-  debugger;
-  // animal[0].toUpperCase() + animal.slice(1).toLowerCase();
   return `I am a recipe generator. Tell me a cuisine, meal type, and what ingredients you have. I will tell you what dish you can make using those ingredients.
   Q: I have potatoes, chicken, spinach, cucumber, butter, oil, tomatoes, onion, garlic. What Russian dish can I make for dinner?
   A: With the ingredients you have on hand, you could make a dish called "Chicken Potato Spinach Bake".
