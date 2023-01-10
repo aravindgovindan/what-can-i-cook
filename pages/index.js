@@ -3,7 +3,9 @@ import { useState } from "react";
 import styles from "./index.module.css";
 
 export default function Home() {
-  const [animalInput, setAnimalInput] = useState("");
+  const [ingreds, setIngreds] = useState("");
+  const [cuisine, setCuisine] = useState("");
+  const [meal, setMeal] = useState("dinner");
   const [result, setResult] = useState();
 
   async function onSubmit(event) {
@@ -14,7 +16,11 @@ export default function Home() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ animal: animalInput }),
+        body: JSON.stringify({
+          meal: meal,
+          cuisine: cuisine,
+          ingreds: ingreds
+        }),
       });
 
       const data = await response.json();
@@ -23,8 +29,7 @@ export default function Home() {
       }
 
       setResult(data.result);
-      setAnimalInput("");
-    } catch(error) {
+    } catch (error) {
       // Consider implementing your own error handling logic here
       console.error(error);
       alert(error.message);
@@ -35,21 +40,34 @@ export default function Home() {
     <div>
       <Head>
         <title>OpenAI Quickstart</title>
-        <link rel="icon" href="/dog.png" />
+        <link rel="icon" href="/food.png" />
       </Head>
 
       <main className={styles.main}>
-        <img src="/dog.png" className={styles.icon} />
-        <h3>Name my pet</h3>
+        <img src="/food.png" className={styles.icon} />
+        <h3>What can I cook?</h3>
         <form onSubmit={onSubmit}>
+          <label for="meal">Select a meal type</label>
+          <select name="meal" id="meals" value={meal} onChange={(e) => setMeal(e.target.value)}>
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="snacks">Snack</option>
+            <option selected value="dinner">Dinner</option>
+          </select>
+          <input type="text"
+            name="cuisine"
+            placeholder="Enter a cuisine"
+            value={cuisine}
+            onChange={(e) => setCuisine(e.target.value)}
+          />
           <input
             type="text"
-            name="animal"
-            placeholder="Enter an animal"
-            value={animalInput}
-            onChange={(e) => setAnimalInput(e.target.value)}
+            name="ingredients"
+            placeholder="What ingredients do you have?"
+            value={ingreds}
+            onChange={(e) => setIngreds(e.target.value)}
           />
-          <input type="submit" value="Generate names" />
+          <input type="submit" value="Generate dish" />
         </form>
         <div className={styles.result}>{result}</div>
       </main>
