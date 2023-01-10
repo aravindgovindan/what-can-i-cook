@@ -39,7 +39,7 @@ export default function Home() {
   return (
     <div>
       <Head>
-        <title>OpenAI Quickstart</title>
+        <title>What can I cook</title>
         <link rel="icon" href="/food.png" />
       </Head>
 
