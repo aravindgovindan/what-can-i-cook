@@ -47,12 +47,12 @@ export default function Home() {
         <img src="/food.png" className={styles.icon} />
         <h3>What can I cook?</h3>
         <form onSubmit={onSubmit}>
-          <label for="meal">Select a meal type</label>
+          <label htmlFor="meal">Select a meal type</label>
           <select name="meal" id="meals" value={meal} onChange={(e) => setMeal(e.target.value)}>
             <option value="breakfast">Breakfast</option>
             <option value="lunch">Lunch</option>
             <option value="snacks">Snack</option>
-            <option selected value="dinner">Dinner</option>
+            <option value="dinner">Dinner</option>
           </select>
           <input type="text"
             name="cuisine"
