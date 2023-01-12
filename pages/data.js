@@ -1,0 +1,32 @@
+export const cuisineList = {
+  american: "American",
+  chinese: "Chinese",
+  italian: "Italian",
+  french: "French",
+  mexican: "Mexican",
+  indian: "Indian",
+  japanese: "Japanese",
+  mediterranean: "Mediterranean",
+  thai: "Thai",
+  korean: "Korean",
+  spanish: "Spanish",
+  vietnamese: "Vietnamese",
+  greek: "Greek",
+  german: "German",
+  african: "African",
+  caribbean: "Caribbean",
+  middleeastern: "Middle Eastern",
+  latinamerican: "Latin American",
+  australian: "Australian",
+  british: "British",
+  irish: "Irish",
+  scottish: "Scottish",
+  fusion: "Fusion",
+};
+
+export const mealTypes = {
+  breakfast: "Breakfast",
+  lunch: "Lunch",
+  dinner: "Dinner",
+  snacks: "Snacks",
+};

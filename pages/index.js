@@ -1,5 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
+import Dropdown from "./components/dropdown";
+import { cuisineList, mealTypes } from "./data";
 import styles from "./index.module.css";
 
 export default function Home() {
@@ -18,7 +20,7 @@ export default function Home() {
         },
         body: JSON.stringify({
           meal: meal,
-          cuisine: cuisine,
+          cuisine: cuisineList[cuisine],
           ingreds: ingreds
         }),
       });
@@ -47,19 +49,21 @@ export default function Home() {
         <img src="/food.png" className={styles.icon} />
         <h3>What can I cook?</h3>
         <form onSubmit={onSubmit}>
-          <label htmlFor="meal">Select a meal type</label>
-          <select name="meal" id="meals" value={meal} onChange={(e) => setMeal(e.target.value)}>
-            <option value="breakfast">Breakfast</option>
-            <option value="lunch">Lunch</option>
-            <option value="snacks">Snack</option>
-            <option value="dinner">Dinner</option>
-          </select>
-          <input type="text"
-            name="cuisine"
-            placeholder="Enter a cuisine"
-            value={cuisine}
-            onChange={(e) => setCuisine(e.target.value)}
-          />
+
+          <Dropdown
+            label="Select a meal type: "
+            options={mealTypes}
+            selection={meal}
+            handleChange={setMeal}
+          ></Dropdown>
+
+          <Dropdown
+            label="Select a cuisine: "
+            options={cuisineList}
+            selection={cuisine}
+            handleChange={setCuisine}
+          ></Dropdown>
+
           <input
             type="text"
             name="ingredients"
