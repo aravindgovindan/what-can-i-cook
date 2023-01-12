@@ -7,7 +7,7 @@ import styles from "./index.module.css";
 
 export default function Home() {
   const [ingreds, setIngreds] = useState("");
-  const [cuisine, setCuisine] = useState("");
+  const [cuisine, setCuisine] = useState("american");
   const [meal, setMeal] = useState("dinner");
   const [result, setResult] = useState();
 
