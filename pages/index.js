@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useState } from "react";
 import Dropdown from "../components/dropdown";
 import { cuisineList, mealTypes } from "../constants/data";
@@ -44,6 +45,11 @@ export default function Home() {
         <title>What can I cook</title>
         <link rel="icon" href="/food.png" />
       </Head>
+
+      <nav className={styles.navbar}>
+        <Link className={styles.selected} href="/">Home</Link>
+        <Link href="/fusion">Fusion</Link>
+      </nav>
 
       <main className={styles.main}>
         <img src="/food.png" className={styles.icon} />
