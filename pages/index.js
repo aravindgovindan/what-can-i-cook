@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
-import Dropdown from "./components/dropdown";
-import { cuisineList, mealTypes } from "./data";
+import Dropdown from "../components/dropdown";
+import { cuisineList, mealTypes } from "../constants/data";
 import styles from "./index.module.css";
 
 export default function Home() {
