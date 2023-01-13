@@ -6,7 +6,7 @@ import { cuisineList, mealTypes } from "../constants/data";
 import styles from "./index.module.css";
 
 export default function Fusion() {
-  const [cuisine1, setCuisine1] = useState("american");
+  const [cuisine1, setCuisine1] = useState("kerala");
   const [cuisine2, setCuisine2] = useState("chinese");
   const [meal, setMeal] = useState("dinner");
   const [result, setResult] = useState();

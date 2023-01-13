@@ -13,6 +13,7 @@ export const cuisineList = {
   irish: "Irish",
   italian: "Italian",
   japanese: "Japanese",
+  kerala: "Kerala",
   korean: "Korean",
   latinamerican: "Latin American",
   mediterranean: "Mediterranean",
